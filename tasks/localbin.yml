@@ -35,7 +35,7 @@
     - name: copy file to localbin dir
       copy:
         src: "/tmp/{{ item.url | basename }}"
-        dest: "{{ localbin_dir }}/{{ localbin_filename | default('omit') }}"
+        dest: "{{ localbin_dir }}/{{ item.filename | default(omit) }}"
         mode: "{{ item.mode | default('1755') }}"
         remote_src: true
       become: true

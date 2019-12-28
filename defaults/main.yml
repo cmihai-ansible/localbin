@@ -54,3 +54,10 @@ localbin_tools:
     version: "1.17"
     version_command: "version"
     copy: true
+  - name: docker-machine-driver
+    url: "https://github.com/dhiltgen/docker-machine-kvm/releases/download/v0.10.0/docker-machine-driver-kvm-centos7"
+    checksum: "sha256:55919a888e8b9fad1a8d7f7308a827de36742fdf311eb9984cef0907d599d429"
+    version: "1"
+    version_command: "version"
+    copy: true
+    filename: docker-machine-driver
