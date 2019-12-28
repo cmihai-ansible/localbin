@@ -30,6 +30,16 @@
         remote_src: true
       become: true
       become_user: "{{ localbin_user }}"
+      when: item.copy is not defined
 
+    - name: copy file to localbin dir
+      copy:
+        src: "/tmp/{{ item.url | basename }}"
+        dest: "{{ localbin_dir }}/{{ localbin_filename | default('omit') }}"
+        mode: "{{ item.mode | default('1755') }}"
+        remote_src: true
+      become: true
+      become_user: "{{ localbin_user }}"
+      when: item.copy|default(false)
   when: "( localbin_version_output is failed )
     or ( item.version not in localbin_version_output.stdout )"
