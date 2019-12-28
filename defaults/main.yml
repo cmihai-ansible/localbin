@@ -61,3 +61,17 @@ localbin_tools:
     version_command: "version"
     copy: true
     filename: docker-machine-driver
+  - name: kompose
+    url: "https://github.com/kubernetes/kompose/releases/download/v1.19.0/kompose-linux-amd64"
+    checksum: "sha256:d73aa4242102884bc5589e7a6777461b7b2e0ddc20b63f2812bfbfcbaa4659d9"
+    version: "1.19.0"
+    version_command: "version"
+    copy: true
+    filename: kompose
+  - name: docker-compose
+    url: "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-Linux-x86_64"
+    checksum: "sha256:2bdab0bbf42583b4b77ee015cf908933c78f0572a7cb949a7dd8e200e6250221"
+    version: "1.25.0"
+    version_command: "version"
+    copy: true
+    filename: docker-compose

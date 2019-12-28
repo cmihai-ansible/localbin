@@ -2,8 +2,8 @@
 # install archive to local bin dir
 
 - name: check if binary already installed
-  command: "{{ localbin_dir }}/{{ item.name }}
-    {{ item.version_command | default('--version') }}"
+  command: "{{ localbin_dir }}/\
+    {{ item.name }} {{ item.version_command | default('--version') }}"
   changed_when: false
   ignore_errors: true
   register: localbin_version_output
