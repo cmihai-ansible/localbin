@@ -16,3 +16,14 @@ localbin_tools:
     version_command: "--version"
     checksum: "sha256:a4104bacbe1c39708339501e28fa8f74fb64076e4a133edd039a8d9c1fcd124d"
     extra_opts: ["--strip=1", "--wildcards", "*/micro"]
+  - name: pandoc
+    version: "2.9.1"
+    version_command: "--version"
+    url: "https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-linux-amd64.tar.gz"
+    checksum: "sha256:1a2f66ffa66d3fa82cd1cdba3fe6e094562f9513f44a0f587ed7d51af413880b"
+    extra_opts: ["--strip=1"]
+  - name: scc
+    version: "2.10.1"
+    version_command: "--version"
+    url: "https://github.com/boyter/scc/releases/download/v2.10.1/scc-2.10.1-x86_64-unknown-linux.zip"
+    checksum: "sha256:663da4a750fd4f0f3d9328dd58f6850c46f458f94258c04b78b630e47d667ff8"
