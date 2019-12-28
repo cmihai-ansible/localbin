@@ -15,7 +15,6 @@
       - tar
       - gzip
       - bzip2
-      - xz
     state: present
   become: true
 
