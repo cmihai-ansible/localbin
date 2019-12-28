@@ -21,9 +21,15 @@ localbin_tools:
     version_command: "--version"
     url: "https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-linux-amd64.tar.gz"
     checksum: "sha256:1a2f66ffa66d3fa82cd1cdba3fe6e094562f9513f44a0f587ed7d51af413880b"
-    extra_opts: ["--strip=1"]
+    extra_opts: ["--strip=2", "--wildcards", "*/pandoc*"]
   - name: scc
     version: "2.10.1"
     version_command: "--version"
     url: "https://github.com/boyter/scc/releases/download/v2.10.1/scc-2.10.1-x86_64-unknown-linux.zip"
     checksum: "sha256:663da4a750fd4f0f3d9328dd58f6850c46f458f94258c04b78b630e47d667ff8"
+  - name: shellcheck
+    version: "0.7.0"
+    version_command: "--version"
+    url: "https://storage.googleapis.com/shellcheck/shellcheck-stable.linux.x86_64.tar.xz"
+    checksum: "sha256:092f8ece0bb8413c835f4ecc14c9f1157ebb44a36a216e3d617d1048ecdfce1b"
+    extra_opts: ["--strip=1", "--wildcards", "*/shellcheck"]

@@ -10,11 +10,7 @@
 
 - name: unpacking tools preset
   package:
-    name:
-      - unzip
-      - tar
-      - gzip
-      - bzip2
+    name: "{{ localbin_packages_prereq }}"
     state: present
   become: true
 
