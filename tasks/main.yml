@@ -24,5 +24,11 @@
       skip: true
   tags: vars
 
+- name: unpacking tools preset
+  package:
+    name: "{{ localbin_packages_prereq }}"
+    state: present
+  become: true
+
 - include: localbin.yml
   loop: "{{ localbin_tools }}"

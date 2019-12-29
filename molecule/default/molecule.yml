@@ -73,7 +73,7 @@ scenario:
     - side_effect
     - verify
     - cleanup
-    - destroy
+    # - destroy
 verifier:
   name: goss
   directory: ../resources/tests

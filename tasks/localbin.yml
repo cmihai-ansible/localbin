@@ -1,18 +1,25 @@
 ---
 # install archive to local bin dir
 
+- name: Download binary to dest and make executable
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest | default(localbin_dir + '/' + item.name) }}"
+    checksum: "{{ item.checksum | default(omit) }}"
+    mode: "{{ item.mode | default('1755') }}"
+    owner: "{{ item.owner | default(localbin_user) }}"
+    group: "{{ item.group | default(omit) }}"
+  become: true
+  become_user: "{{ localbin_user }}"
+  when: not item.unpack|default(false)
+
 - name: check if binary already installed
-  command: "{{ localbin_dir }}/\
-    {{ item.name }} {{ item.version_command | default('--version') }}"
+  command: "{{ item.dest | default(localbin_dir + '/' + item.name) }}
+    {{ item.version_command | default('--version') }}"
   changed_when: false
   ignore_errors: true
   register: localbin_version_output
-
-- name: unpacking tools preset
-  package:
-    name: "{{ localbin_packages_prereq }}"
-    state: present
-  become: true
+  when: item.unpack|default(false)
 
 - name: install if binary not present
   block:
@@ -25,21 +32,12 @@
     - name: unarchive
       unarchive:
         src: "/tmp/{{ item.url | basename }}"
-        dest: "{{ localbin_dir }}"
+        dest: "{{ item.dest | default(localbin_dir) }}"
         extra_opts: "{{ item.extra_opts | default(omit) }}"
         remote_src: true
       become: true
       become_user: "{{ localbin_user }}"
-      when: item.copy is not defined
-
-    - name: copy file to localbin dir
-      copy:
-        src: "/tmp/{{ item.url | basename }}"
-        dest: "{{ localbin_dir }}/{{ item.filename | default (item.name) }}"
-        mode: "{{ item.mode | default('1755') }}"
-        remote_src: true
-      become: true
-      become_user: "{{ localbin_user }}"
-      when: item.copy|default(false)
-  when: "( localbin_version_output is failed )
-    or ( item.version not in localbin_version_output.stdout )"
+  when:
+    - item.unpack|default(false)
+    - "( localbin_version_output is failed )
+        or ( item.version not in localbin_version_output.stdout )"

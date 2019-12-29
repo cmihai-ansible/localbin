@@ -23,26 +23,31 @@ Requirements
 Role Variables
 --------------
 
-See defaults for more examples. Can download and unpack .tar, .gz, .xz and .zip.
-Can also install binaries by making them executable. See the `copy: true` option.
+See defaults for more examples.
+Will place binaries in `localbin_dir` or provided `dest`.
+Will unpack .tar, .gz, .xz and .zip when setting `unpack: true`.
 
 ```yaml
 localbin_user: root
 localbin_dir: "/usr/local/bin"
 localbin_tools:
-  - name: pandoc
-    version: "2.9.1"
+  # Unpack, and strip leading directory path
+  - name: micro
+    url: "https://github.com/zyedidia/micro/releases/download/\
+      v1.4.1/micro-1.4.1-linux64.tar.gz"
+    checksum: "sha256:e7d4c9427f9fdfed78e69d42cf518e93ae15fc8f70b7f0f87d292ed81206e900"
+    version: "1.4.1"
     version_command: "--version"
-    url: "https://github.com/jgm/pandoc/releases/download/2.9.1/pandoc-2.9.1-linux-amd64.tar.gz"
-    checksum: "sha256:1a2f66ffa66d3fa82cd1cdba3fe6e094562f9513f44a0f587ed7d51af413880b"
-    extra_opts: ["--strip=2", "--wildcards", "*/pandoc*"]
+    extra_opts: ["--strip=1", "--wildcards", "*/micro"]
+    unpack: true
+
+  # Download and place in localbin_dir or provided dest
   - name: kubectl
     url: "https://storage.googleapis.com/kubernetes-release/release/\
       v1.17.0/bin/linux/amd64/kubectl"
     checksum: "sha256:6e0aaaffe5507a44ec6b1b8a0fb585285813b78cc045f8804e70a6aac9d1cb4c"
     version: "1.17"
     version_command: "version"
-    copy: true
 ```
 
 Dependencies
@@ -68,12 +73,23 @@ Example Playbook
         localbin_user: root
         localbin_dir: "/usr/local/bin"
         localbin_tools:
-          - name: hugo
-            url: "https://github.com/gohugoio/hugo/releases/download/v0.58.3/hugo_0.58.3_Linux-64bit.tar.gz"
-            version: "0.58.3"
+          # Unpack, and strip leading directory path
+          - name: micro
+            url: "https://github.com/zyedidia/micro/releases/download/\
+              v1.4.1/micro-1.4.1-linux64.tar.gz"
+            checksum: "sha256:e7d4c9427f9fdfed78e69d42cf518e93ae15fc8f70b7f0f87d292ed81206e900"
+            version: "1.4.1"
+            version_command: "--version"
+            extra_opts: ["--strip=1", "--wildcards", "*/micro"]
+            unpack: true
+
+          # Download and place in localbin_dir or provided dest
+          - name: kubectl
+            url: "https://storage.googleapis.com/kubernetes-release/release/\
+              v1.17.0/bin/linux/amd64/kubectl"
+            checksum: "sha256:6e0aaaffe5507a44ec6b1b8a0fb585285813b78cc045f8804e70a6aac9d1cb4c"
+            version: "1.17"
             version_command: "version"
-            checksum: "sha256:92aeeb64d4c392782cb55424dc2cc594a06ad5e1bc7e156480feab488ff7e774"
-            extra_opts: ["--wildcards", "hugo"]
       tags: localbin
 ```
 
