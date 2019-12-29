@@ -63,8 +63,8 @@ scenario:
   test_sequence:
     - lint
     - dependency
-    - cleanup
-    - destroy
+    # - cleanup
+    # - destroy
     - syntax
     - create
     - prepare
@@ -72,7 +72,7 @@ scenario:
     - idempotence
     - side_effect
     - verify
-    - cleanup
+    # - cleanup
     # - destroy
 verifier:
   name: goss
