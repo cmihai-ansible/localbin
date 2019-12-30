@@ -75,12 +75,20 @@ localbin_tools:
     version_command: "version"
 
   - name: helm
-    url: "https://get.helm.sh/helm-v3.0.2-linux-amd64.tar.gz"
+    url: "https://get.helm.sh/\
+      helm-v3.0.2-linux-amd64.tar.gz"
     checksum: "sha256:c6b7aa7e4ffc66e8abb4be328f71d48c643cb8f398d95c74d075cfb348710e1d"
     version: "3.0.2"
     version_command: "version"
     extra_opts: ["--strip=1", "--wildcards", "*/helm"]
     unpack: true
+
+  - name: hadolint
+    url: "https://github.com/hadolint/hadolint/releases/download/\
+      v1.17.3/hadolint-Linux-x86_64"
+    checksum: "sha256:59635ef4cfeac298a038254168c60492a92d16fa7e9dfbaf1f1edb488b5aae4b"
+    version: "1.17.3"
+    version_command: "--version"
 
   # OpenShift tools
   - name: oc
@@ -170,3 +178,13 @@ localbin_tools:
       v0.3.9/extras/dgoss/dgoss"
     checksum: "sha256:9919a54fef4c6e9bb5438507c80796d4ed8be84372154a4b86847efd427a3c54"
     version: "0.3.9"
+
+  # WTFUtil
+  - name: wtfutil
+    url: "https://github.com/wtfutil/wtf/releases/download/\
+      v0.25.0/wtf_0.25.0_linux_amd64.tar.gz"
+    checksum: "sha256:04fb7b147cef5f4ab18f6f6c340a565d8aa5b6623fd316a3d576f227128221af"
+    version: "0.25.0"
+    version_command: "--version"
+    extra_opts: ["--strip=1", "--wildcards", "*/wtfutil"]
+    unpack: true
