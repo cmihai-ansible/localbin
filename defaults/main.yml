@@ -3,188 +3,69 @@
 
 localbin_user: root
 localbin_dir: "/usr/local/bin"
-localbin_tools:
-  # Editors
-  - name: micro
-    url: "https://github.com/zyedidia/micro/releases/download/\
-      v1.4.1/micro-1.4.1-linux64.tar.gz"
-    checksum: "sha256:e7d4c9427f9fdfed78e69d42cf518e93ae15fc8f70b7f0f87d292ed81206e900"
-    version: "1.4.1"
-    version_command: "--version"
-    extra_opts: ["--strip=1", "--wildcards", "*/micro"]
-    unpack: true
 
-  # Document builders
-  - name: hugo
-    url: "https://github.com/gohugoio/hugo/releases/download/\
-      v0.58.3/hugo_0.58.3_Linux-64bit.tar.gz"
-    checksum: "sha256:92aeeb64d4c392782cb55424dc2cc594a06ad5e1bc7e156480feab488ff7e774"
-    version: "0.58.3"
-    version_command: "version"
-    extra_opts: ["--wildcards", "hugo"]
-    unpack: true
+localbin_micro_version: "1.4.1"
+localbin_micro_checksum: "sha256:e7d4c9427f9fdfed78e69d42cf518e93ae15fc8f70b7f0f87d292ed81206e900"
 
-  - name: pandoc
-    url: "https://github.com/jgm/pandoc/releases/download/\
-      2.9.1/pandoc-2.9.1-linux-amd64.tar.gz"
-    checksum: "sha256:1a2f66ffa66d3fa82cd1cdba3fe6e094562f9513f44a0f587ed7d51af413880b"
-    version: "2.9.1"
-    version_command: "--version"
-    extra_opts: ["--strip=2", "--wildcards", "*/pandoc*"]
-    unpack: true
+localbin_hugo_version: "0.62.0"
+localbin_hugo_checksum: "sha256:1c3f999320ae30f9b648f6f72305b126be7fd4bab9cb7edf74253c0cbe892c87"
 
-  # Code Tools
-  - name: scc
-    url: "https://github.com/boyter/scc/releases/download/\
-      v2.10.1/scc-2.10.1-x86_64-unknown-linux.zip"
-    checksum: "sha256:663da4a750fd4f0f3d9328dd58f6850c46f458f94258c04b78b630e47d667ff8"
-    version: "2.10.1"
-    version_command: "--version"
-    unpack: true
+localbin_pandoc_version: "2.9.1"
+localbin_pandoc_checksum: "sha256:1a2f66ffa66d3fa82cd1cdba3fe6e094562f9513f44a0f587ed7d51af413880b"
 
-  - name: shellcheck
-    url: "https://storage.googleapis.com/shellcheck/\
-      shellcheck-stable.linux.x86_64.tar.xz"
-    checksum: "sha256:092f8ece0bb8413c835f4ecc14c9f1157ebb44a36a216e3d617d1048ecdfce1b"
-    version: "0.7.0"
-    version_command: "--version"
-    extra_opts: ["--strip=1", "--wildcards", "*/shellcheck"]
-    unpack: true
+localbin_scc_version: "2.10.1"
+localbin_scc_checksum: "sha256:663da4a750fd4f0f3d9328dd58f6850c46f458f94258c04b78b630e47d667ff8"
 
-  # Container Tools
-  - name: docker-compose
-    url: "https://github.com/docker/compose/releases/download/\
-      1.25.0/docker-compose-Linux-x86_64"
-    checksum: "sha256:2bdab0bbf42583b4b77ee015cf908933c78f0572a7cb949a7dd8e200e6250221"
-    version: "1.25.0"
-    version_command: "version"
+localbin_shellcheck_version: "0.7.0"
+localbin_shellcheck_checksum: "sha256:092f8ece0bb8413c835f4ecc14c9f1157ebb44a36a216e3d617d1048ecdfce1b"
 
-  # Kubernetes Tools
-  - name: kubectl
-    url: "https://storage.googleapis.com/kubernetes-release/release/\
-      v1.17.0/bin/linux/amd64/kubectl"
-    checksum: "sha256:6e0aaaffe5507a44ec6b1b8a0fb585285813b78cc045f8804e70a6aac9d1cb4c"
-    version: "1.17"
-    version_command: "version"
+localbin_docker_compose_version: "1.25.0"
+localbin_docker_compose_checksum: "sha256:2bdab0bbf42583b4b77ee015cf908933c78f0572a7cb949a7dd8e200e6250221"
 
-  - name: kompose
-    url: "https://github.com/kubernetes/kompose/releases/download/\
-      v1.19.0/kompose-linux-amd64"
-    checksum: "sha256:d73aa4242102884bc5589e7a6777461b7b2e0ddc20b63f2812bfbfcbaa4659d9"
-    version: "1.19.0"
-    version_command: "version"
+localbin_kubectl_version: "1.17.0"
+localbin_kubectl_checksum: "sha256:6e0aaaffe5507a44ec6b1b8a0fb585285813b78cc045f8804e70a6aac9d1cb4c"
 
-  - name: helm
-    url: "https://get.helm.sh/\
-      helm-v3.0.2-linux-amd64.tar.gz"
-    checksum: "sha256:c6b7aa7e4ffc66e8abb4be328f71d48c643cb8f398d95c74d075cfb348710e1d"
-    version: "3.0.2"
-    version_command: "version"
-    extra_opts: ["--strip=1", "--wildcards", "*/helm"]
-    unpack: true
+localbin_kompose_version: "1.19.0"
+localbin_kompose_checksum: "sha256:d73aa4242102884bc5589e7a6777461b7b2e0ddc20b63f2812bfbfcbaa4659d9"
 
-  - name: hadolint
-    url: "https://github.com/hadolint/hadolint/releases/download/\
-      v1.17.3/hadolint-Linux-x86_64"
-    checksum: "sha256:59635ef4cfeac298a038254168c60492a92d16fa7e9dfbaf1f1edb488b5aae4b"
-    version: "1.17.3"
-    version_command: "--version"
+localbin_helm_version: "3.0.2"
+localbin_helm_checksum: "sha256:c6b7aa7e4ffc66e8abb4be328f71d48c643cb8f398d95c74d075cfb348710e1d"
 
-  # OpenShift tools
-  - name: oc
-    url: "https://github.com/openshift/origin/releases/download/\
-      v3.11.0/openshift-origin-client-tools-v3.11.0-0cbc58b-linux-64bit.tar.gz"
-    checksum: "sha256:4b0f07428ba854174c58d2e38287e5402964c9a9355f6c359d1242efd0990da3"
-    version: "3.11"
-    version_command: "version"
-    extra_opts: ["--strip=1", "--wildcards", "*/oc"]
-    unpack: true
+localbin_hadolint_version: "1.17.3"
+localbin_hadolint_checksum: "sha256:59635ef4cfeac298a038254168c60492a92d16fa7e9dfbaf1f1edb488b5aae4b"
 
-  - name: minishift
-    url: "https://github.com/minishift/minishift/releases/download/\
-      v1.34.2/minishift-1.34.2-linux-amd64.tgz"
-    checksum: "sha256:dd7c3a297ab741b90f62c5389f9ab0f484b094780d6deee0c9aa8e94837741d1"
-    version: "1.34.2"
-    version_command: "version"
-    extra_opts: ["--strip=1", "--wildcards", "*/minishift"]
-    unpack: true
+localbin_oc_version: "3.11.0"
+localbin_oc_checksum: "sha256:4b0f07428ba854174c58d2e38287e5402964c9a9355f6c359d1242efd0990da3"
 
-  - name: docker-machine-driver
-    url: "https://github.com/dhiltgen/docker-machine-kvm/releases/download/\
-      v0.10.0/docker-machine-driver-kvm-centos7"
-    checksum: "sha256:55919a888e8b9fad1a8d7f7308a827de36742fdf311eb9984cef0907d599d429"
-    version: "1"
-    version_command: "version"
+localbin_minishift_version: "1.34.2"
+localbin_minishift_checksum: "sha256:dd7c3a297ab741b90f62c5389f9ab0f484b094780d6deee0c9aa8e94837741d1"
 
-  # Hashicorp tools
-  - name: terraform
-    url: "https://releases.hashicorp.com/terraform/\
-      0.12.18/terraform_0.12.18_linux_amd64.zip"
-    checksum: "sha256:e7ebe3ca988768bffe0c239d107645bd53515354cff6cbe5651718195a151700"
-    version: "0.12.18"
-    version_command: "version"
-    unpack: true
+localbin_docker_machine_driver_version: "0.10.0"
+localbin_docker_machine_driver_checksum: "sha256:55919a888e8b9fad1a8d7f7308a827de36742fdf311eb9984cef0907d599d429"
 
-  - name: vault
-    url: "https://releases.hashicorp.com/vault/\
-      1.3.0/vault_1.3.0_linux_amd64.zip"
-    checksum: "sha256:d89b8a317831b06f2a32c56cb86071d058b09d9317b416bb509ce3d01e912eb3"
-    version: "1.3.0"
-    version_command: "version"
-    unpack: true
+localbin_terraform_version: "0.12.18"
+localbin_terraform_checksum: "sha256:e7ebe3ca988768bffe0c239d107645bd53515354cff6cbe5651718195a151700"
 
-  - name: consul
-    url: "https://releases.hashicorp.com/consul/\
-      1.6.2/consul_1.6.2_linux_amd64.zip"
-    version: "1.6.2"
-    checksum: "sha256:78d127e5b8edd310c3f9f89487fb833a5c7bcb4e09cb731a4d39100fc53b38be"
-    version_command: "version"
-    unpack: true
+localbin_vault_version: "1.3.0"
+localbin_vault_checksum: "sha256:d89b8a317831b06f2a32c56cb86071d058b09d9317b416bb509ce3d01e912eb3"
 
-  - name: nomad
-    url: "https://releases.hashicorp.com/nomad/\
-      0.10.2/nomad_0.10.2_linux_amd64.zip"
-    checksum: "sha256:cab179b0245e07ed39f4bcaa543e88d32fadf8660c2230733ce836873fe2714d"
-    version: "0.10.2"
-    version_command: "version"
-    unpack: true
+localbin_consul_version: "1.6.2"
+localbin_consul_checksum: "sha256:78d127e5b8edd310c3f9f89487fb833a5c7bcb4e09cb731a4d39100fc53b38be"
 
-  - name: vagrant
-    url: "https://releases.hashicorp.com/vagrant/\
-      2.2.6/vagrant_2.2.6_linux_amd64.zip"
-    checksum: "sha256:a08c7765baae1ee88b3bc0bace718087a84e2023d1f2ecc134aa735b89515a03"
-    version: "2.2.6"
-    version_command: "version"
-    unpack: true
+localbin_nomad_version: "0.10.2"
+localbin_nomad_checksum: "sha256:cab179b0245e07ed39f4bcaa543e88d32fadf8660c2230733ce836873fe2714d"
 
-  - name: packer
-    url: "https://releases.hashicorp.com/packer/\
-      1.5.1/packer_1.5.1_linux_amd64.zip"
-    checksum: "sha256:3305ede8886bc3fd83ec0640fb87418cc2a702b2cb1567b48c8cb9315e80047d"
-    version: "1.5.1"
-    version_command: "version"
-    unpack: true
+localbin_vagrant_version: "2.2.6"
+localbin_vagrant_checksum: "sha256:a08c7765baae1ee88b3bc0bace718087a84e2023d1f2ecc134aa735b89515a03"
 
-  # Goss
-  - name: goss
-    url: "https://github.com/aelsabbahy/goss/releases/download/\
-      v0.3.9/goss-linux-amd64"
-    checksum: "sha256:5e4a51a8c0f955e5ce99851b4a15eed9f1b3b6bee17f23dabda08071775663c8"
-    version: "0.3.9"
-    version_command: "--version"
+localbin_packer_version: "1.5.1"
+localbin_packer_checksum: "sha256:3305ede8886bc3fd83ec0640fb87418cc2a702b2cb1567b48c8cb9315e80047d"
 
-  - name: dgoss
-    url: "https://raw.githubusercontent.com/aelsabbahy/goss/\
-      v0.3.9/extras/dgoss/dgoss"
-    checksum: "sha256:9919a54fef4c6e9bb5438507c80796d4ed8be84372154a4b86847efd427a3c54"
-    version: "0.3.9"
+localbin_goss_version: "0.3.9"
+localbin_goss_checksum: "sha256:5e4a51a8c0f955e5ce99851b4a15eed9f1b3b6bee17f23dabda08071775663c8"
 
-  # WTFUtil
-  - name: wtfutil
-    url: "https://github.com/wtfutil/wtf/releases/download/\
-      v0.25.0/wtf_0.25.0_linux_amd64.tar.gz"
-    checksum: "sha256:04fb7b147cef5f4ab18f6f6c340a565d8aa5b6623fd316a3d576f227128221af"
-    version: "0.25.0"
-    version_command: "--version"
-    extra_opts: ["--strip=1", "--wildcards", "*/wtfutil"]
-    unpack: true
+localbin_dgoss_version: "0.3.9"
+localbin_dgoss_checksum: "sha256:9919a54fef4c6e9bb5438507c80796d4ed8be84372154a4b86847efd427a3c54"
+
+localbin_wtfutil_version: "0.25.0"
+localbin_wtfutil_checksum: "sha256:04fb7b147cef5f4ab18f6f6c340a565d8aa5b6623fd316a3d576f227128221af"
