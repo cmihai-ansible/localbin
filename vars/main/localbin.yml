@@ -57,6 +57,15 @@ localbin_tools:
     version: "{{ localbin_docker_compose_version }}"
     version_command: "version"
 
+  # Lazydocker interface: https://github.com/jesseduffield/lazydocker
+  - name: lazydocker
+    url: "https://github.com/jesseduffield/lazydocker/releases/download/\
+      v{{ localbin_lazydocker_version }}/lazydocker_{{ localbin_lazydocker_version }}_Linux_x86_64.tar.gz"
+    checksum: "{{ localbin_lazydocker_checksum }}"
+    version: "{{ localbin_lazydocker_version }}"
+    version_command: "version"
+    unpack: true
+
   # Kubernetes Tools
   - name: kubectl
     url: "https://storage.googleapis.com/kubernetes-release/release/\
@@ -185,4 +194,13 @@ localbin_tools:
     version: "{{ localbin_wtfutil_version }}"
     version_command: "--version"
     extra_opts: ["--strip=1", "--wildcards", "*/wtfutil"]
+    unpack: true
+
+  # Alacritty terminal emulator https://github.com/jwilm/alacritty/releases
+  - name: alacritty
+    url: "https://github.com/jwilm/alacritty/releases/download/\
+      v{{ localbin_alacritty_version }}/Alacritty-v{{ localbin_alacritty_version }}-ubuntu_18_04_amd64.tar.gz"
+    checksum: "{{ localbin_alacritty_checksum }}"
+    version: "{{ localbin_alacritty_version }}"
+    version_command: "--version"
     unpack: true

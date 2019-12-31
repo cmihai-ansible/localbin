@@ -22,6 +22,9 @@ localbin_shellcheck_checksum: "sha256:092f8ece0bb8413c835f4ecc14c9f1157ebb44a36a
 localbin_docker_compose_version: "1.25.0"
 localbin_docker_compose_checksum: "sha256:2bdab0bbf42583b4b77ee015cf908933c78f0572a7cb949a7dd8e200e6250221"
 
+localbin_lazydocker_version: "0.7.6"
+localbin_lazydocker_checksum: "sha256:71081c3bd6bc1b9b750c776b6a10b2716ffa924b66829fcf44f6fbdab6975417"
+
 localbin_kubectl_version: "1.17.0"
 localbin_kubectl_checksum: "sha256:6e0aaaffe5507a44ec6b1b8a0fb585285813b78cc045f8804e70a6aac9d1cb4c"
 
@@ -69,3 +72,6 @@ localbin_dgoss_checksum: "sha256:9919a54fef4c6e9bb5438507c80796d4ed8be84372154a4
 
 localbin_wtfutil_version: "0.25.0"
 localbin_wtfutil_checksum: "sha256:04fb7b147cef5f4ab18f6f6c340a565d8aa5b6623fd316a3d576f227128221af"
+
+localbin_alacritty_version: "0.4.0"
+localbin_alacritty_checksum: "sha256:01658587af5ec971249202f4f278166306003667435856612498a2b523d1b720"
