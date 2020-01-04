@@ -49,6 +49,13 @@ localbin_tools:
     extra_opts: ["--strip=1", "--wildcards", "*/shellcheck"]
     unpack: true
 
+  - name: shfmt
+    url: "https://github.com/mvdan/sh/releases/download/\
+      v3.0.0/shfmt_v3.0.0_linux_amd64"
+    checksum: "{{ localbin_shfmt_checksum }}"
+    version: "{{ localbin_shfmt_version }}"
+    version_command: "--version"
+
   # Container Tools
   - name: docker-compose
     url: "https://github.com/docker/compose/releases/download/\

@@ -19,6 +19,9 @@ localbin_scc_checksum: "sha256:663da4a750fd4f0f3d9328dd58f6850c46f458f94258c04b7
 localbin_shellcheck_version: "0.7.0"
 localbin_shellcheck_checksum: "sha256:092f8ece0bb8413c835f4ecc14c9f1157ebb44a36a216e3d617d1048ecdfce1b"
 
+localbin_shfmt_version: "3.0.0"
+localbin_shfmt_checksum: "sha256:b7c9088741242dde26082be3a006693bd252b3fd1966b8b23aaee4d54ed2a470"
+
 localbin_docker_compose_version: "1.25.0"
 localbin_docker_compose_checksum: "sha256:2bdab0bbf42583b4b77ee015cf908933c78f0572a7cb949a7dd8e200e6250221"
 

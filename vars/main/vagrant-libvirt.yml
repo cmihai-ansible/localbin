@@ -1,0 +1,14 @@
+---
+
+
+# libvirt-devel ruby-devel gcc
+# https://github.com/vagrant-libvirt/vagrant-libvirt/issues/982
+# CONFIGURE_ARGS='with-ldflags=-L/opt/vagrant/embedded/lib with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib' GEM_HOME=~/.vagrant.d/gems GEM_PATH=$GEM_HOME:/opt/vagrant/embedded/gems PATH=/opt/vagrant/embedded/bin:$PATH vagrant plugin install vagrant-libvirt
+
+- name: dependencies are installed
+  package:
+    - name: "{{ localbin_packages_libvirt }}"
+  become: true
+
+- name: vagrant-libvirt is installed
+  command: CONFIGURE_ARGS="with-libvirt-include=/usr/include/libvirt with-libvirt-lib=/usr/lib64" vagrant plugin install vagrant-libvirt
