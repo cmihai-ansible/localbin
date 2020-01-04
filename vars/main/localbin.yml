@@ -2,6 +2,16 @@
 # vars file for localbin
 
 localbin_tools:
+  # Neofetch
+  - name: neofetch
+    url: "https://github.com/dylanaraps/neofetch/archive/\
+      {{ localbin_neofetch_version }}.tar.gz"
+    checksum: "{{ localbin_neofetch_checksum }}"
+    version: "{{ localbin_neofetch_version }}"
+    version_command: "--version"
+    extra_opts: ["--strip=1", "--wildcards", "*/neofetch"]
+    unpack: true
+
   # Editors
   - name: micro
     url: "https://github.com/zyedidia/micro/releases/download/\
