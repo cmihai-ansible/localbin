@@ -22,6 +22,14 @@ localbin_tools:
     extra_opts: ["--strip=1", "--wildcards", "*/micro"]
     unpack: true
 
+  # YQ YAML tool
+  - name: yq
+    url: "https://github.com/mikefarah/yq/releases/download/\
+      {{ localbin_yq_version }}/yq_linux_amd64"
+    checksum: "{{ localbin_yq_checksum }}"
+    version: "{{ localbin_yq_version }}"
+    verion_command: "--version"
+
   # Document builders
   - name: hugo
     url: "https://github.com/gohugoio/hugo/releases/download/\
